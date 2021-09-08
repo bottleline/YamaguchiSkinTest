@@ -16,12 +16,12 @@
 ## 주요 구현 장면
 
 ### 1. 블루투스 연결
-![bluetooth](https://user-images.githubusercontent.com/42457589/132481152-c9398231-6f63-49e2-b6a8-67f7084061ee.gif)
+![bt_rs](https://user-images.githubusercontent.com/42457589/132491009-ab3fbeb9-16f6-42fe-97bd-aa3f0f201e50.gif)
 
 ### 2. 촬영한 피부사진 정사각형 크롭 기능
-![cam](https://user-images.githubusercontent.com/42457589/132481160-308a01dc-cd5c-42d9-90f3-0d6b0a7e29e2.gif)
+![graph](https://user-images.githubusercontent.com/42457589/132491010-6ce3fa94-e88a-481f-99c9-8a591b5d6528.gif)
 
-### 3. 분석 결과 DB 저장 및 테이블뷰로 표현 
+### 3. 분석 결과 DB 저장 및 그래프, 테이블뷰로 표현 
 ![recored](https://user-images.githubusercontent.com/42457589/132481165-550d1a45-7dba-4620-bc23-6209699cd766.gif)
 
 
