@@ -21,7 +21,7 @@
 ### 2. 촬영한 피부사진 정사각형 크롭 및 서버전송 (Alamofire)
 ![crop](https://user-images.githubusercontent.com/42457589/132491006-89d419a6-0604-41d8-beb2-e88d7cc8fe6c.gif)
 
-### 3. 분석 결과 DB 저장 및 그래프, 테이블뷰로 표현 (Sqlite)
+### 3. 분석 결과 DB 저장 및 그래프, 테이블뷰로 표현 (Sqlite3)
 ![graph](https://user-images.githubusercontent.com/42457589/132491010-6ce3fa94-e88a-481f-99c9-8a591b5d6528.gif)
 
 
