@@ -19,9 +19,9 @@
 ![bt_rs](https://user-images.githubusercontent.com/42457589/132491009-ab3fbeb9-16f6-42fe-97bd-aa3f0f201e50.gif)
 
 ### 2. 촬영한 피부사진 정사각형 크롭 기능
-![graph](https://user-images.githubusercontent.com/42457589/132491010-6ce3fa94-e88a-481f-99c9-8a591b5d6528.gif)
+![crop](https://user-images.githubusercontent.com/42457589/132491006-89d419a6-0604-41d8-beb2-e88d7cc8fe6c.gif)
 
 ### 3. 분석 결과 DB 저장 및 그래프, 테이블뷰로 표현 
-![recored](https://user-images.githubusercontent.com/42457589/132481165-550d1a45-7dba-4620-bc23-6209699cd766.gif)
+![graph](https://user-images.githubusercontent.com/42457589/132491010-6ce3fa94-e88a-481f-99c9-8a591b5d6528.gif)
 
 
