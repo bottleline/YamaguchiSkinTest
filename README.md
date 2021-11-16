@@ -16,12 +16,15 @@
 ## 주요 구현 장면
 
 ### 1. 블루투스 연결 (CoreBluetooth)
-![bt_rs](https://user-images.githubusercontent.com/42457589/132491009-ab3fbeb9-16f6-42fe-97bd-aa3f0f201e50.gif)
+![bt_rs](https://user-images.githubusercontent.com/42457589/132491009-ab3fbeb9-16f6-42fe-97bd-aa3f0f201e50.gif)  
+하드웨어 기기와 블루투스 연결을 한다.
 
-### 2. 촬영한 피부사진 정사각형 크롭 및 서버전송 (Alamofire)
-![crop](https://user-images.githubusercontent.com/42457589/132491006-89d419a6-0604-41d8-beb2-e88d7cc8fe6c.gif)
+### 2. 이미지 정사각형 크롭 및 서버전송 (Alamofire)
+![crop](https://user-images.githubusercontent.com/42457589/132491006-89d419a6-0604-41d8-beb2-e88d7cc8fe6c.gif)  
+이미지를 정사각형으로 크롭하여 서버로 전송한다.
 
-### 3. 분석 결과 DB 저장 및 그래프, 테이블뷰로 표현 (Sqlite3)
-![graph](https://user-images.githubusercontent.com/42457589/132491010-6ce3fa94-e88a-481f-99c9-8a591b5d6528.gif)
+### 3. 분석 결과 DB 저장
+![graph](https://user-images.githubusercontent.com/42457589/132491010-6ce3fa94-e88a-481f-99c9-8a591b5d6528.gif)  
+DB에 저장된 결과를 불러올수 있다.
 
 
