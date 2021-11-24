@@ -16,6 +16,11 @@
 - `CoreBluetooth`
 - `Alamofire`
 
+## 적용한 주요 Layout
+- `TableView`
+- `TabbarController`
+- `ScrollView`
+
 ## 주요 구현 장면
 
 ### 1. 블루투스 연결 (CoreBluetooth)
