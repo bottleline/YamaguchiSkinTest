@@ -43,7 +43,7 @@ func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPerip
 
 ``` 
 ``` swift
- // 2. notifing 서비스 연결
+ // 2. notifying 서비스 연결
  func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
      guard let charactistics = service.characteristics else{return}
      if charactistic.uuid == notiUUID{
@@ -76,7 +76,47 @@ func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPerip
 ### 2. 이미지 정사각형 크롭 및 서버전송 (Alamofire)
 ![crop](https://user-images.githubusercontent.com/42457589/132491006-89d419a6-0604-41d8-beb2-e88d7cc8fe6c.gif)  
 이미지를 정사각형으로 크롭하여 서버로 전송한다.
+``` swift
+func cropImage(_ inputImage : UIImage, toRect cropRect: CGRect) -> UIImage{
+        let frame = CGRect(x: cropRect.minX * scale,
+                           y: cropRect.minY * scale,
+                           width: cropRect.width * scale,
+                           height: cropRect.height * scale)
+        guard let cutImageRef: CGImage = inputImage.cgImage?.cropping(to: frame)
+            else{
+                return inputImage
+        }
+        let croppedImage: UIImage = UIImage(cgImage: cutImageRef) 
+        return croppedImage
+    }
+    
+    // Alamofire를 통한 multipart 이미지전송 
+alamoFireManager.upload(multipartFormData: { multipartFormData in
+            if let imageData = UIImageJPEGRepresentation(image, 1) {
+                multipartFormData.append(imageData, withName: "image", fileName: "image.jpg", mimeType: "image/png")
+            }}, to: url, method: .post, headers: ["Authorization": AUTO],
+                encodingCompletion: { encodingResult in
+                    switch encodingResult {
+                    case .success(let upload, _, _):
+                        
+                        upload.uploadProgress { progress in
+                            print(progress.fractionCompleted)
+                            self.progressView.setProgress(Float(progress, animated: true)
+                        }
 
+                        upload.response { [weak self] response in
+                            guard self != nil else {return}
+                            do{
+                                guard let json = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as? [String:Any] else { return }
+                            }catch let jsonErr{
+                                print("Error Jason Serializing", jsonErr)
+                            }
+                        }
+                    case .failure(let encodingError):
+                        
+                    }
+        })
+```
 ### 3. 분석 결과 DB 저장
 ![graph](https://user-images.githubusercontent.com/42457589/132491010-6ce3fa94-e88a-481f-99c9-8a591b5d6528.gif)  
 DB에 저장된 결과를 불러올수 있다.
