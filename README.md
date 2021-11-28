@@ -91,7 +91,7 @@ func cropImage(_ inputImage : UIImage, toRect cropRect: CGRect) -> UIImage{
     }
     
     // Alamofire를 통한 multipart 이미지전송 
-alamoFireManager.upload(multipartFormData: { multipartFormData in
+AF.upload(multipartFormData: { multipartFormData in
             if let imageData = UIImageJPEGRepresentation(image, 1) {
                 multipartFormData.append(imageData, withName: "image", fileName: "image.jpg", mimeType: "image/png")
             }}, to: url, method: .post, headers: ["Authorization": AUTO],
