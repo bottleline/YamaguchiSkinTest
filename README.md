@@ -26,7 +26,53 @@
 ### 1. 블루투스 연결 (CoreBluetooth)
 ![bt_rs](https://user-images.githubusercontent.com/42457589/132491009-ab3fbeb9-16f6-42fe-97bd-aa3f0f201e50.gif)  
 하드웨어 기기와 블루투스 연결을 한다.
+### 1
+``` swift
+ // 1. 디바이스 스캔시작 
+ centralManager.scanForPeripherals(withServices: nil) 
 
+``` 
+### 2
+``` swift
+ // 1. 디바이스 발견시 연결 
+func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        if peripheral.name == "myDevice"{
+            central.connect(peripheral,options:nil) // 일련번호를 확인후 연결한다
+        }
+    }
+
+``` 
+``` swift
+ // 2. notifing 서비스 연결
+ func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+     guard let charactistics = service.characteristics else{return}
+     if charactistic.uuid == notiUUID{
+                peripheral.setNotifyValue(true, for: charactistic) // notifiying 서비스를 구독하여 기기에서 변경된 값을 감시
+            }
+      }
+ }
+ 
+ //3. 원하는 패킷 전송
+ peripheral.writeValue(value) // 패킷 전송
+
+``` 
+### 3
+``` swift
+// 3. 응답패킷 수신 
+ func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        switch characteristic.uuid{
+        
+        case notiUUID:
+            guard let s = characteristic.value else {return}
+            guard let sData = s.data(using: .utf8) else {return}
+            if let string = String(data: sData,encoding: String.Encoding.utf8){
+                print("receive : \(string)")
+            }
+        default:
+            print("Unhandled Charactistic UUID: \(characteristic.uuid)")
+        }
+    }
+```
 ### 2. 이미지 정사각형 크롭 및 서버전송 (Alamofire)
 ![crop](https://user-images.githubusercontent.com/42457589/132491006-89d419a6-0604-41d8-beb2-e88d7cc8fe6c.gif)  
 이미지를 정사각형으로 크롭하여 서버로 전송한다.
