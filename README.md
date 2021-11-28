@@ -9,6 +9,8 @@
 ## 수행역할
 - 단독 프로젝트
 - 앱 제작을 요청한 기업의 가이드라인에 따라 앱 설계 및 제작 배포
+ ![image](https://user-images.githubusercontent.com/42457589/143732226-365c4bd3-7a77-45b9-97d1-aa8a0ffd9e2c.png)
+
 - 하드웨어 설계
 
 ## 사용한 기술
